@@ -24,6 +24,7 @@
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <IncludeSchemaNameInFileName>True</IncludeSchemaNameInFileName>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -60,6 +61,7 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="SqlScripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\InputTopics.sql" />
@@ -91,4 +93,26 @@
     <Build Include="dbo\Tables\Topics.sql" />
     <Build Include="dbo.Table1.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SqlScripts\dbo.KnowledgeAreas.data.sql" />
+    <None Include="SqlScripts\dbo.PmbokVersions.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessCatalogs.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessGroups.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessInputs.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessInputTopics.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessOutputs.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessOutputTopics.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessTools.data.sql" />
+    <None Include="SqlScripts\dbo.ProcessToolTopics.data.sql" />
+    <None Include="SqlScripts\dbo.Topics.data.sql" />
+    <None Include="SqlScripts\dbo.ITOes.data.sql" />
+    <None Include="dbpmbok.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment1.sql" />
+    <None Include="Script.PostDeployment2.sql" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>:r .\Script.PostDeployment1.sql</PostBuildEvent>
+  </PropertyGroup>
 </Project>

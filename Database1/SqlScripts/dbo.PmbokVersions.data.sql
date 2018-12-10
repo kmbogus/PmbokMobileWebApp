@@ -1,0 +1,1 @@
+INSERT INTO [dbo].[PmbokVersions] ([Id], [CreatedAt], [UpdatedAt], [Deleted], [PmbokVersionNumber], [PmbokVersionText], [PmbokVersionDescription]) VALUES (N'edd7dca4d2a94c7a8d6f55fbef403f8c', N'9/25/2018 7:21:24 PM +00:00', N'9/25/2018 7:21:24 PM +00:00', 0, 4, N'Fourth Edition', N'Fourth edition of the Project Management Body of Knowledge (PMBOK Guide)')
