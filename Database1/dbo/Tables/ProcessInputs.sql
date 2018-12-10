@@ -11,7 +11,12 @@
     [ProcessInputDescription] NVARCHAR (MAX)     NULL,
     [ProcessInputText]        NVARCHAR (MAX)     NULL,
     [ITOText]                 NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ProcessInputs] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProcessInputs] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProcessInputs] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+	CONSTRAINT [FK2_dbo.ProcessInputs] FOREIGN KEY ([ITOId]) REFERENCES [ITOes]([Id]),
+	CONSTRAINT [FK3_dbo.ProcessInputs] FOREIGN KEY ([ProcessCatalogId]) REFERENCES [ProcessCatalogs]([Id]),
+
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

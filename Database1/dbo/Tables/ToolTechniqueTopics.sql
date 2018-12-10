@@ -7,7 +7,9 @@
     [ProcessToolTechniqueId] NVARCHAR (128)     NULL,
     [TopicId]                NVARCHAR (128)     NULL,
     [TopicNote]              NVARCHAR (MAX)     NULL,
-    CONSTRAINT [PK_dbo.ToolTechniqueTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ToolTechniqueTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ToolTechniqueTopics] FOREIGN KEY ([TopicId]) REFERENCES [Topics]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

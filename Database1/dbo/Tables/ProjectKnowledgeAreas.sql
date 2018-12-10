@@ -10,7 +10,11 @@
     [PmbokVersionText]  NVARCHAR (128)     NULL,
     [KnowledgeAreaId]   NVARCHAR (128)     NULL,
     [KnowledgeAreaText] NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ProjectKnowledgeAreas] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProjectKnowledgeAreas] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProjectKnowledgeAreas] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+	CONSTRAINT [FK2_dbo.ProjectKnowledgeAreas] FOREIGN KEY ([ProjectId]) REFERENCES [Projects]([Id]),
+	CONSTRAINT [FK3_dbo.ProjectKnowledgeAreas] FOREIGN KEY ([KnowledgeAreaId]) REFERENCES [KnowledgeAreas]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

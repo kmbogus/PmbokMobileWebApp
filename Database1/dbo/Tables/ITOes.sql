@@ -8,7 +8,8 @@
     [ITOText]        NVARCHAR (MAX)     NULL,
     [ITODescription] NVARCHAR (MAX)     NULL,
     [PmbokVersionId] NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ITOes] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ITOes] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ITOes] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id])
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

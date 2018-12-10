@@ -13,7 +13,8 @@
     [Role]        NVARCHAR (128)     NULL,
     [Mobile]      NVARCHAR (128)     NULL,
     [Phone]       NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ProjectMembers] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProjectMembers] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProjectMembers] FOREIGN KEY ([ProjectId]) REFERENCES [Projects]([Id])
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

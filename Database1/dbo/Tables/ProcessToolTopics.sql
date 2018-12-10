@@ -9,7 +9,12 @@
     [ProcessToolText] NVARCHAR (MAX)     NULL,
     [TopicId]         NVARCHAR (128)     NULL,
     [TopicText]       NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ProcessToolTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProcessToolTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProcessToolTopics] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+	CONSTRAINT [FK2_dbo.ProcessToolTopics] FOREIGN KEY ([ProcessToolId]) REFERENCES [ProcessTools]([Id]),
+	CONSTRAINT [FK3_dbo.ProcessToolTopics] FOREIGN KEY ([TopicId]) REFERENCES [Topics]([Id]),
+
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

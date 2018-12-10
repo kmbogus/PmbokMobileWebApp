@@ -18,7 +18,11 @@
     [Status]            NVARCHAR (128)     NULL,
     [StatusDate]        DATETIME           NULL,
     [IsUsed]            BIT                NULL,
-    CONSTRAINT [PK_dbo.ProjectProcessCatalogs] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProjectProcessCatalogs] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProjectProcessCatalogs] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+	CONSTRAINT [FK2_dbo.ProjectProcessCatalogs] FOREIGN KEY ([ProcessGroupId]) REFERENCES [ProcessGroups]([Id]),
+	CONSTRAINT [FK3_dbo.ProjectProcessCatalogs] FOREIGN KEY ([KnowledgeAreaId]) REFERENCES [KnowledgeAreas]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

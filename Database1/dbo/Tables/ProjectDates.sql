@@ -10,7 +10,9 @@
     [OtherDateType] NVARCHAR (128)     NULL,
     [RecordedDate]  DATETIME           NULL,
     [DateNote]      NVARCHAR (MAX)     NULL,
-    CONSTRAINT [PK_dbo.ProjectDates] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProjectDates] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProcessDates] FOREIGN KEY ([ProjectId]) REFERENCES [Projects]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

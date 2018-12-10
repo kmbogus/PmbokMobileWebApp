@@ -18,7 +18,9 @@
     [PmbokVersionText] NVARCHAR (128)     NULL,
     [EstimatedBudget]  DECIMAL (18, 2)    NULL,
     [ApprovedBudget]   DECIMAL (18, 2)    NULL,
-    CONSTRAINT [PK_dbo.Projects] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.Projects] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.Projects] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

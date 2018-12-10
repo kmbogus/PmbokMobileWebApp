@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using PmbokMobileWebApp.Models;
 
 namespace PmbokMobileWebApp
 {
@@ -33,8 +35,12 @@ namespace PmbokMobileWebApp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-        }
 
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=dbpmbok;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<dbpmbokContext>(options => options.UseSqlServer(connection));
+
+
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

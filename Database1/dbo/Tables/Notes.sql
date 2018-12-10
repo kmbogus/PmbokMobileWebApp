@@ -7,7 +7,9 @@
     [NoteDescription] NVARCHAR (MAX)     NULL,
     [NoteText]        NVARCHAR (MAX)     NULL,
     [PmbokVersionId]  NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.Notes] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.Notes] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.Notes] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

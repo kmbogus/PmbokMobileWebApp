@@ -7,7 +7,10 @@
     [ProcessOutputId] NVARCHAR (128)     NULL,
     [TopicId]         NVARCHAR (128)     NULL,
     [TopicNote]       NVARCHAR (MAX)     NULL,
-    CONSTRAINT [PK_dbo.OutputTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.OutputTopics] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.OutputTopics] FOREIGN KEY ([ProcessOutputId]) REFERENCES [ProcessOutputs]([Id]),
+	CONSTRAINT [FK2_dbo.OutputTopics] FOREIGN KEY ([TopicId]) REFERENCES [Topics]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

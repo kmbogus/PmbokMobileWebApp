@@ -10,7 +10,11 @@
     [PmbokVersionId]     NVARCHAR (128)     NULL,
     [ProcessGroupId]     NVARCHAR (128)     NULL,
     [KnowledgeAreaId]    NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.ProcessLists] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.ProcessLists] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.ProcessLists] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+	CONSTRAINT [FK2_dbo.ProcessLists] FOREIGN KEY ([ProcessGroupId]) REFERENCES [ProcessGroups]([Id]),
+	CONSTRAINT [FK3_dbo.ProcessLists] FOREIGN KEY ([KnowledgeAreaId]) REFERENCES [KnowledgeAreas]([Id])
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]

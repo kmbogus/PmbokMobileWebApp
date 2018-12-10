@@ -7,7 +7,9 @@
     [TopicDescription] NVARCHAR (MAX)     NULL,
     [TopicText]        NVARCHAR (MAX)     NULL,
     [PmbokVersionId]   NVARCHAR (128)     NULL,
-    CONSTRAINT [PK_dbo.Topics] PRIMARY KEY NONCLUSTERED ([Id] ASC)
+    CONSTRAINT [PK_dbo.Topics] PRIMARY KEY NONCLUSTERED ([Id] ASC),
+	CONSTRAINT [FK1_dbo.Topics] FOREIGN KEY ([PmbokVersionId]) REFERENCES [PmbokVersions]([Id]),
+
 );
 GO
 CREATE CLUSTERED INDEX [IX_CreatedAt]
